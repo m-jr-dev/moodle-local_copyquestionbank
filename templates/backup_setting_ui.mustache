@@ -1,0 +1,72 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_copyquestionbank/backup_setting_ui
+
+    Copy question bank option for the initial course backup settings.
+
+    @copyright  2026 Marcelo M. Almeida Júnior
+    @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+    Context variables required for this template:
+    * checked - Whether the option is selected.
+    * disabled - Whether question banks cannot be included in this backup.
+    * helpicon - Trusted HTML rendered by Moodle's help icon renderer.
+    * label - Localised field label.
+    * schemawarningicon - Warning help control shown while the option is selected.
+    * warningicon - Trusted Moodle help control explaining why the option is unavailable.
+
+    Example context (json):
+    {
+        "checked": true,
+        "disabled": false,
+        "helpicon": "",
+        "label": "Copy Question Bank",
+        "schemawarningicon": "",
+        "warningicon": ""
+    }
+}}
+<div id="fitem_id_local_copyquestionbank_copy"
+    class="mb-3 row fitem"
+    data-fieldtype="checkbox"
+    data-region="local-copyquestionbank-option">
+    <div class="col-md-3 col-form-label pb-0 pt-0"></div>
+    <div class="col-md-9 checkbox">
+        <div class="form-check">
+            <input type="hidden" name="local_copyquestionbank_present" value="1">
+            <input type="checkbox"
+                class="form-check-input"
+                id="id_local_copyquestionbank_copy"
+                name="local_copyquestionbank_copy"
+                value="1"
+                data-action="copy-question-bank"
+                {{#checked}}checked{{/checked}}
+                {{#disabled}}disabled{{/disabled}}>
+            <label for="id_local_copyquestionbank_copy" class="form-check-label">{{label}}</label>
+            <div class="ms-2 d-inline-flex align-items-center align-self-start">
+                {{{helpicon}}}
+                {{#disabled}}
+                    <span data-region="local-copyquestionbank-unavailable">{{{warningicon}}}</span>
+                {{/disabled}}
+                {{^disabled}}
+                    <span data-region="local-copyquestionbank-schema-warning"
+                        {{^checked}}hidden{{/checked}}>{{{schemawarningicon}}}</span>
+                {{/disabled}}
+            </div>
+        </div>
+    </div>
+</div>

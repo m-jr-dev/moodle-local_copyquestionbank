@@ -1,0 +1,49 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_copyquestionbank/question_bank_group
+
+    Dedicated visual group for native question bank backup settings.
+
+    @copyright  2026 Marcelo M. Almeida Júnior
+    @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+
+    Context variables required for this template:
+    * grouplabel - Localised title for the question bank group.
+    * userinfolabel - Localised title for the user data column.
+
+    Example context (json):
+    {
+        "grouplabel": "Question Banks",
+        "userinfolabel": "User data"
+    }
+}}
+<div class="grouped_settings section_level"
+    data-region="local-copyquestionbank-group"
+    role="group"
+    aria-label="{{grouplabel}}">
+    <div class="include_setting section_level">
+        <div class="fitem local-copyquestionbank-group-heading">
+            <div class="fitemtitle">{{grouplabel}}</div>
+        </div>
+    </div>
+    <div class="normal_setting">
+        <div class="fitem local-copyquestionbank-group-heading">
+            <div class="fitemtitle">{{userinfolabel}}</div>
+        </div>
+    </div>
+</div>
